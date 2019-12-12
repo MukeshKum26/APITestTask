@@ -1,4 +1,5 @@
 import Student from './student'
+import Projects from './projects'
 
 
-export { Student }
+export { Student, Projects }

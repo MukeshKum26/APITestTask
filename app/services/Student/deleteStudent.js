@@ -37,7 +37,6 @@ class GetStudent extends ServiceBase {
         return
       }
     } catch (e) {
-      console.log("e",e)
       this.addError('failed', 'try again')
     }
   }
