@@ -1,9 +1,9 @@
-import students from '../../models/students'
+import Students from '../../models/students'
 import ServiceBase from '../base'
 
 class GetStudentsList extends ServiceBase {
   async run() {
-    return students 
+    return Students 
   }
 }
 

@@ -12,8 +12,7 @@ class Student {
   }
 
   static async getStudent( req, res ) {
-    const { id } = req.params
-    const studentId = parseInt(id)
+    const { id: studentId } = req.params
     const getStudent = await GetStudent.execute( { studentId } )
     return sendResponse( getStudent, res )
   }
@@ -31,8 +30,8 @@ class Student {
   }
 
   static async deleteStudent( req, res ) {
-    const { params: { id } } = req
-    const studentDeleted = await DeleteStudent.execute( { studentId: parseInt(id) } )
+    const { params: { id: studentId } } = req
+    const studentDeleted = await DeleteStudent.execute( { studentId } )
     return sendResponse( studentDeleted, res )
   }
 }

@@ -1,7 +1,7 @@
 import fs from 'fs'
 import { promisify } from 'util'
 
-import studentList from '../../models/students'
+import Students from '../../models/students'
 import ServiceBase from '../base'
 import config from '../../../config/app'
 
@@ -42,9 +42,9 @@ class UpdateStudent extends ServiceBase {
         email
       } = this.args
 
-      const studentIndex = studentList.findIndex(student => student.id == id )
+      const studentIndex = Students.findIndex(student => student.id == id )
 
-      const studentIndexEmail = studentList.findIndex(student => student.email === email)
+      const studentIndexEmail = Students.findIndex(student => student.email === email)
 
       if ( studentIndexEmail > 0 && studentIndex !== studentIndexEmail) {
         this.addError('email', 'Already exists', 400)
@@ -52,8 +52,8 @@ class UpdateStudent extends ServiceBase {
       }
 
       if ( studentIndex ) {
-        studentList[studentIndex] = this.args
-        await writeFile(`${modelLocation}students.json`, JSON.stringify(studentList))
+        Students[studentIndex] = this.args
+        await writeFile(`${modelLocation}students.json`, JSON.stringify(Students))
       }
       return this.args
     } catch (e) {
