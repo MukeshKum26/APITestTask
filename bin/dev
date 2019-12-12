@@ -1,0 +1,7 @@
+/**
+ * Module dependencies.
+ * to allow import
+ */
+require('babel-register')
+require('babel-polyfill')
+require('../main')
