@@ -6,6 +6,7 @@ router.get( '/:id', StudentController.getStudent)
 router.post('/', StudentController.addStudent)
 router.put('/:id', StudentController.updateStudent)
 router.delete('/:id', StudentController.deleteStudent)
+router.get('/projects/:id', StudentController.getStudentProjects)
 
 
 export default router

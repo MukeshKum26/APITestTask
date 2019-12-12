@@ -4,6 +4,7 @@ import GetStudent from '../services/Student/getStudent'
 import AddStudent from '../services/Student/addStudent'
 import UpdateStudent from '../services/Student/updateStudent'
 import DeleteStudent from '../services/Student/deleteStudent'
+import GetStudentProject from '../services/Student/getStudentProject'
 
 class Student {
   static async getStudentList( req, res ) {
@@ -33,6 +34,12 @@ class Student {
     const { params: { id: studentId } } = req
     const studentDeleted = await DeleteStudent.execute( { studentId } )
     return sendResponse( studentDeleted, res )
+  }
+
+  static async getStudentProjects( req, res ) {
+    const { params: { id: studentId } } = req
+    const studentsProject = await GetStudentProject.execute( { studentId } )
+    return sendResponse( studentsProject, res )
   }
 }
 

@@ -1,4 +1,5 @@
 import Students from '../../models/students'
+import Projects from '../../models/projects'
 import ServiceBase from '../base'
 
 const constraints = {
@@ -17,8 +18,15 @@ class GetStudent extends ServiceBase {
       studentId
     } = this.args
 
+    let projectList = []
+
     const student = Students.find(student => student.id == studentId)
-    return student
+    if (student) {
+      projectList = Projects.filter(project => project.studentId === studentId)
+    } else {
+      this.addError('user', 'doesnt exist')
+    }
+    return projectList
   }
 }
 
