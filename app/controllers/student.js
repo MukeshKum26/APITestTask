@@ -5,6 +5,7 @@ import AddStudent from '../services/Student/addStudent'
 import UpdateStudent from '../services/Student/updateStudent'
 import DeleteStudent from '../services/Student/deleteStudent'
 import GetStudentProject from '../services/Student/getStudentProject'
+import SaveProfilePicture from '../services/Student/saveProfilePicture'
 
 class Student {
   static async getStudentList( req, res ) {
@@ -39,6 +40,13 @@ class Student {
   static async getStudentProjects( req, res ) {
     const { params: { id: studentId } } = req
     const studentsProject = await GetStudentProject.execute( { studentId } )
+    return sendResponse( studentsProject, res )
+  }
+
+  static async saveStudentProfilePicture(req, res) {
+    const { params: { id: studentId }, files } = req
+    console.log("Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", req.file, req.files)
+    const studentsProject = await SaveProfilePicture.execute( { studentId } )
     return sendResponse( studentsProject, res )
   }
 }

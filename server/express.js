@@ -41,15 +41,18 @@ function initMiddleware () {
   }
 
   // Request body parsing middleware should be above methodOverride
-  app.use(bodyParser.urlencoded({
-    extended: true
-  }))
+  // app.use(bodyParser.urlencoded({
+  //   extended: true
+  // }))
+  app.use(bodyParser.json({limit: '50mb'}))
+  app.use(bodyParser.urlencoded({limit: '50mb', extended: true, parameterLimit: 1000000}))
   app.use(bodyParser.json({limit: '50mb'}))
   app.use(bodyParser.raw({ type: '*/*', limit: '1000mb' }))
   app.use(methodOverride())
 
   app.use(compression())
   app.use(cors())
+  app.use('/public', express.static('public') )
 }
 
 function initErrorRoutes () {
