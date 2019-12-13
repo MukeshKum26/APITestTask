@@ -9,8 +9,7 @@ class GetProjectsList extends ServiceBase {
 
     let projectsList = Projects
     if (keyword && keyword.length > 0) {
-      const keywordClean = keyword.trim()
-      const keyWordRegex = new RegExp(keywordClean, 'gi')
+      const keyWordRegex = new RegExp(keyword, 'gi')
       projectsList = projectsList.filter( project => project.name.match(keyWordRegex))
     }
 
