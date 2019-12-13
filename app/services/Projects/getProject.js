@@ -1,17 +1,7 @@
 import Projects from '../../models/projects'
 import ServiceBase from '../base'
 
-const constraints = {
-  projectId: {
-    presence: { allowEmpty: false },
-  }
-}
-
 class GetProject extends ServiceBase {
-  get constraints () {
-    return constraints
-  }
-
   async run() {
     const {
       projectId

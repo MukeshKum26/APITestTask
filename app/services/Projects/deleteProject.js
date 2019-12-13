@@ -10,17 +10,7 @@ const modelLocation = config.get('modelLocation')
 
 const writeFile = promisify(fs.writeFile)
 
-const constraints = {
-  projectId: {
-    presence: { allowEmpty: false }
-  },
-}
-
 class DeleteProject extends ServiceBase {
-  get constraints () {
-    return constraints
-  }
-
   async run() {
     try {
       const {
