@@ -40,7 +40,8 @@ const config = convict({
       env: 'LOG_LEVEL'
     }
   },
-  modelLocation: './app/models/'
+  modelLocation: './app/models/',
+  publicFolderPath: '/home/rails/work/testTaskCobiro/api/'
 })
 
 config.validate({ allowed: 'strict' })

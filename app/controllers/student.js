@@ -44,9 +44,8 @@ class Student {
   }
 
   static async saveStudentProfilePicture(req, res) {
-    const { params: { id: studentId }, files } = req
-    console.log("Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", req.file, req.files)
-    const studentsProject = await SaveProfilePicture.execute( { studentId } )
+    const { params: { id: studentId }, file } = req
+    const studentsProject = await SaveProfilePicture.execute( { studentId, file } )
     return sendResponse( studentsProject, res )
   }
 }

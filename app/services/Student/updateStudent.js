@@ -51,6 +51,10 @@ class UpdateStudent extends ServiceBase {
         return
       }
 
+      if (studentIndex < 0) {
+        this.addError('student', 'doesnt exist', 400)
+      }
+
       if ( studentIndex ) {
         Students[studentIndex] = this.args
         await writeFile(`${modelLocation}students.json`, JSON.stringify(Students))

@@ -47,7 +47,8 @@ class AddStudent extends ServiceBase {
         ...this.args,
         id: uuid(),
         createdAt: new Date(),
-        projectNumber: 0
+        projectNumber: 0,
+        profilePicture: null
       }
       Students.push(newStudentObject)
       await writeFile(`${modelLocation}students.json`, JSON.stringify(Students))
