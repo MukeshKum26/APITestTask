@@ -5,9 +5,8 @@ import methodOverride from 'method-override'
 import compression from 'compression'
 import helmet from 'helmet'
 import cors from 'cors'
-// // import moment from 'moment-timezone'
-// import initPassport from '../lib/passport'
 
+import initPassport from '../lib/passport'
 import logger from './logger'
 import Responder from './expressResponder'
 import initRoutes from '../app/routes'
@@ -71,6 +70,7 @@ export function init() {
   initMiddleware()
 
   // initPassport()
+  initPassport()
 
   // Initialize modules server routes
   initRoutes(app)
