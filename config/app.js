@@ -44,6 +44,10 @@ const config = convict({
   publicFolderPath: '/home/rails/work/testTaskCobiro/api/'
 })
 
+const env = config.get('env')
+
+config.loadFile('./environment/' + env + '.json')
+
 config.validate({ allowed: 'strict' })
 
 module.exports = config

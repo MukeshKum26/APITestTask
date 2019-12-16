@@ -1,13 +1,16 @@
 import validate from 'validate.js'
-import { isEmail,
+import {
+  isEmail,
   isString,
-  isInteger
+  isInteger,
+  isDate
 } from './dataTypeValidators'
 
 const validators = {
   isString,
   isEmail,
   isInteger,
+  isDate
 }
 
 Object.assign( validate.validators, validators )

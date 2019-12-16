@@ -4,7 +4,7 @@ import { Projects as ProjectsController } from '../../../../controllers'
 import validatorMiddleware from '../../../../validations/validatorMiddleware'
 
 
-router.get('/', getProjectsValiator, ProjectsController.getProjectList)
+router.get('/', getProjectsValiator, validatorMiddleware, ProjectsController.getProjectList)
 router.get( '/:id', ProjectsController.getProject)
 router.post('/', createProjectValidator, validatorMiddleware, ProjectsController.addProject)
 router.put('/:id', updateProjectValidator, validatorMiddleware, ProjectsController.updateProject)

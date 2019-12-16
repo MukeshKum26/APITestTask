@@ -1,4 +1,5 @@
 import validate from 'validate.js'
+import moment from 'moment'
 
 export const isString = ( value ) => {
   if ( value && !validate.isString( value ) ) return 'Should be a string' 
@@ -11,4 +12,8 @@ export const isEmail = ( value ) => {
 
 export const isInteger = ( value ) => {
   if ( value && !validate.isInteger( value ) ) return 'Should be an integer'
+}
+
+export const isDate = ( value ) => {
+  if ( value && !moment(value).isValid()) return 'Should be a valid date'
 }

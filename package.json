@@ -4,7 +4,7 @@
   "description": "rest api server",
   "main": "main.js",
   "scripts": {
-    "start": "nodemon ./bin/dev",
+    "start": "nodemon --ignore 'app/models/*.json' ./bin/dev",
     "lint": "eslint .",
     "lint-fix": "eslint --fix --ext .js"
   },

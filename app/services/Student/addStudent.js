@@ -20,6 +20,7 @@ const constraints = {
   },
   dob: {
     presence: { allowEmpty: false },
+    isDate: 'valid'
   },
   email: {
     presence: { allowEmpty: false },
