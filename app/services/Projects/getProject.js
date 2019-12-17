@@ -8,6 +8,7 @@ class GetProject extends ServiceBase {
     } = this.args
 
     const project = Projects.find(project => project.id == projectId)
+    if (!project) this.addError('project', 'doesnt exist', 404)
     return project
   }
 }

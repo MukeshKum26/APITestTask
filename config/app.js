@@ -41,7 +41,7 @@ const config = convict({
     }
   },
   modelLocation: './app/models/',
-  publicFolderPath: '/home/rails/work/testTaskCobiro/api/'
+  publicFolderPath: '/home/rails/work/testTask/api/'
 })
 
 const env = config.get('env')

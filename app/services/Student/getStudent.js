@@ -18,6 +18,7 @@ class GetStudent extends ServiceBase {
     } = this.args
 
     const student = Students.find(student => student.id == studentId)
+    if (!student) this.addError('student', 'doesnt exist', 404)
     return student
   }
 }
